@@ -58,7 +58,10 @@ export default class App extends Component {
         <Contact
           id={this.keyId}
           onDelete={this.deleteContact}
-          contacts={this.state.contacts}
+          contacts={this.state.filter === '' ?
+            this.state.contacts:
+            this.state.contacts.filter(cont => cont.name.toLowerCase().includes(this.state.filter) 
+            )}
         ></Contact>
       </div>
     );
